@@ -7,7 +7,7 @@ import TextCustom from '../composants/TextCustom'
 import RadioButtonCustom from '../composants/RadioBtnCustom'
 import GridCustom from '../composants/GridCustom'
 
-const ScoreScreen = () => {
+const ScoreScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={[globalStyles.container]}>
       <HeaderCustom text="Mon quiz"></HeaderCustom>
@@ -19,8 +19,8 @@ const ScoreScreen = () => {
         <GridCustom></GridCustom>
         <View style={{ alignItems: 'center' }}>
           <ButtonCustom
-            text="Valider"
-            onPress={() => setVisibleRegister(true)}
+            text="Rejouer ?"
+            onPress={() => navigation.navigate('HomeScreen')}
           />
         </View>
       </View>

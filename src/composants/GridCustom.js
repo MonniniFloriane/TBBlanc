@@ -2,36 +2,19 @@ import { useState } from 'react'
 import * as React from 'react'
 import { DataTable } from 'react-native-paper'
 
-const GridCustom = () => {
+const GridCustom = ({ score }) => {
   const [page, setPage] = useState(0)
   const [numberOfItemsPerPageList] = useState([2, 3, 4])
   const [itemsPerPage, onItemsPerPageChange] = useState(numberOfItemsPerPageList[0])
+
   const [items] = useState([
     {
       key: 1,
-      name: 'Cupcake',
-      calories: 356,
-      fat: 16
-    },
-    {
-      key: 2,
-      name: 'Eclair',
-      calories: 262,
-      fat: 16
-    },
-    {
-      key: 3,
-      name: 'Frozen yogurt',
-      calories: 159,
-      fat: 6
-    },
-    {
-      key: 4,
-      name: 'Gingerbread',
-      calories: 305,
-      fat: 3.7
+      name: 'Input name',
+      score: score
     }
   ])
+
   const from = page * itemsPerPage
   const to = Math.min((page + 1) * itemsPerPage, items.length)
 
@@ -42,16 +25,14 @@ const GridCustom = () => {
   return (
     <DataTable>
       <DataTable.Header>
-        <DataTable.Title>Dessert</DataTable.Title>
-        <DataTable.Title numeric>Calories</DataTable.Title>
-        <DataTable.Title numeric>Fat</DataTable.Title>
+        <DataTable.Title>Nom</DataTable.Title>
+        <DataTable.Title numeric>Score</DataTable.Title>
       </DataTable.Header>
 
       {items.slice(from, to).map(item => (
         <DataTable.Row key={item.key}>
           <DataTable.Cell>{item.name}</DataTable.Cell>
-          <DataTable.Cell numeric>{item.calories}</DataTable.Cell>
-          <DataTable.Cell numeric>{item.fat}</DataTable.Cell>
+          <DataTable.Cell numeric>{item.score}</DataTable.Cell>
         </DataTable.Row>
       ))}
     </DataTable>

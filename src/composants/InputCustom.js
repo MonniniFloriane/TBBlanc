@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     gap: 10,
     paddingLeft: 10,
     width: 200,
-    borderColor: COLORS.grey
+    borderBottomColor: COLORS.grey
   }
 })

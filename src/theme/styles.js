@@ -6,6 +6,7 @@ export const globalStyles = StyleSheet.create({
   containerFlex: {
     display: 'flex'
   },
+  //FONT
   h1: {
     fontSize: TYPOGRAPHY.fontSizeXLarge,
     color: COLORS.white,
@@ -40,6 +41,20 @@ export const globalStyles = StyleSheet.create({
     textAlign: 'left',
     lineHeight: 23
   },
+  //BUTTON
+  btn: {
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: COLORS.black,
+    borderRadius: 50,
+    width: '100%',
+    paddingVertical: 5
+  },
+  btnPrimary: {
+    backgroundColor: COLORS.btnPrimary,
+    borderColor: 'transparent'
+  },
+  //OTHER
   alignItemsCenter: {
     alignItems: 'center'
   },

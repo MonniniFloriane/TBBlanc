@@ -9,7 +9,7 @@ import RadioButtonCustom from '../composants/RadioBtnCustom'
 const QuestionScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={[globalStyles.container]}>
-      <HeaderCustom text="Mon quiz"></HeaderCustom>
+      <HeaderCustom text="Mon quiz" />
       <View style={{ paddingVertical: 30, paddingHorizontal: 10, flex: 1, gap: 50, justifyContent: 'flex-start' }}>
         <RadioButtonCustom navigation={navigation}></RadioButtonCustom>
       </View>

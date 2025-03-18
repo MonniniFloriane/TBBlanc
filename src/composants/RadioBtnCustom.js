@@ -4,13 +4,13 @@ import { Button, RadioButton, Text } from 'react-native-paper'
 import { globalStyles, COLORS, TYPOGRAPHY } from '../theme/styles'
 import JSON_datas from '../JSON_datas.json'
 
-const RadioButtonCustom = ({ navigation, setScore }) => {
+const RadioButtonCustom = ({ navigation }) => {
   //index des questions par default
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   //reponse
   const [selectedAnswer, setSelectedAnswer] = useState('')
   //etat local pour le score
-  const [localScore, setLocalScore] = useState(0)
+  const [localScore, setScore] = useState(0)
   //recup la question actuelle
   const currentQuestion = JSON_datas[currentQuestionIndex]
 
@@ -22,18 +22,21 @@ const RadioButtonCustom = ({ navigation, setScore }) => {
   //passer la question suivante
   const handleNextQuestion = () => {
     //verifier la reponse correcte
+    // Vérifier la réponse correcte
     if (selectedAnswer === currentQuestion.reponseOk) {
-      const newScore = localScore + 5
-      setLocalScore(newScore)
-      setScore(newScore)
+      setScore(localScore + 1)
     }
 
-    //passer la question suivante ou terminer le quizz
+    // Passer à la question suivante ou terminer le quiz
     if (currentQuestionIndex < JSON_datas.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
-      setSelectedAnswer('') //reinitialiser
+      setSelectedAnswer('') // Réinitialiser
     } else {
-      navigation.navigate('ScoreScreen')
+      Alert.alert(
+        'Quiz terminé',
+        `Votre score est de ${localScore + (selectedAnswer === currentQuestion.reponseOK ? 1 : 0)}/${JSON_datas.length}`,
+        [{ text: 'OK', onPress: () => navigation.navigate('ScoreScreen') }] // Utilisez navigation ici
+      )
     }
   }
 
